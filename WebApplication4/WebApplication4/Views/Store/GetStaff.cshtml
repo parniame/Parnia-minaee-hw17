@@ -1,0 +1,83 @@
+﻿@model List<Staff>;
+
+
+
+
+<div class="container">
+    <div class="col">
+        <div class="row ">
+            <form asp-controller="Store" asp-action="FilterStaff" class="my-4">
+                <div class="form-group my-3">
+                    <label for="staffID">staff ID</label>
+                    @* <input   class="form-control" id="storeId" placeholder="Search by Store ID"> *@
+                    <input name="staffID" type="text" pattern="^\d+$" title="Only positive integer" class="form-control" id="staffID" placeholder="Search by Store ID">
+                </div>
+                <div class="form-group my-3">
+                    <label for="storeName">Store Name</label>
+                    <input name="storeName" type="text" class="form-control" id="storeName" placeholder="Search by Store Name">
+
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+
+
+            </form>
+        </div>
+
+        <div class="row">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Staff ID
+                        </th>
+
+                        <th>
+                            First Name
+                        </th>
+                        <th>
+                            Last Name
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Phone
+                        </th>
+                        <th>
+                            Store ID
+                        </th>
+                        <th>
+                            Store Name
+                        </th>
+                        <th>
+                            Manager First Name
+                        </th>
+                        <th>
+                            Manager Last Name
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var staff in Model)
+                    {
+                        <tr>
+                            <td>@staff.Id</td>
+                            <td>@staff.FirstName</td>
+                            <td>@staff.LastName</td>
+                            <td>@staff.Email</td>
+                            <td>@staff.Phone</td>
+                            <td>@staff.StoreId</td>
+                            <td>@staff.StoreName</td>
+                            <td>@staff.ManagerFirstName</td>
+                            <td>@staff.ManagerLastName</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
